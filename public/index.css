@@ -1,0 +1,144 @@
+.img {
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	margin-top: 100px;
+	display: inline-block;
+	margin-left: 75px;
+
+}
+#container {
+
+	position: relative;
+
+}
+
+#img1{
+	top: 25%;
+	left: 8%;
+}
+
+#img2{
+	top: 25%;
+	left: 28%;
+}
+
+#img3{
+	top: 25%;
+	left: 48%;
+}
+
+#img4{
+	top: 25%;
+	left: 68%;
+}
+
+
+.img:hover{
+	cursor: pointer;
+}
+
+#img1:hover{
+	content: url("img/goodnight-steve-hover.jpg");
+}
+
+#img2:hover{
+	content: url("img/steve-finding-bucky-bear-hover.jpg");
+}
+
+#img3:hover{
+	content: url("img/steve-hugging-bucky-bear-hover.jpg");
+}
+
+#img4:hover{
+	content: url("img/steve-proud-hover.jpg");
+}
+
+
+
+h1{
+	text-align: center;
+	color: red;
+	margin-top: 20px;
+	margin-bottom: 0px;
+	font-family: 'Baloo', cursive;
+
+}
+
+
+
+
+/*Custom Button CSS*/
+
+body {
+	background-color: papayawhip;
+	min-height: 100%;
+	margin: 0;
+	padding: 0;
+	font: 400 1.4rem 'Lato', Verdana, Helvetica, sans-serif;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+section button {
+ 	margin: 0 auto;
+	font-size: 2.0rem;
+	padding: 1.25rem 2.5rem;
+	display: block;
+	background-color: #009ac9;
+	border: 1px solid transparent;
+	color: #ffffff;
+	font-weight: 300;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+section button:hover {
+	background-color: #ffffff;
+	color: #009ac9;
+	border-color: #009ac9;
+}
+
+/*Button Flashing*/
+
+
+@-webkit-keyframes glowing {
+  0% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; -webkit-box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+}
+
+@-moz-keyframes glowing {
+  0% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; -moz-box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
+}
+
+@-o-keyframes glowing {
+  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+}
+
+@keyframes glowing {
+  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+}
+
+/*[data-number='1'] {*/
+.flash {
+  -webkit-animation: glowing 1500ms infinite;
+  -moz-animation: glowing 1500ms infinite;
+  -o-animation: glowing 1500ms infinite;
+  animation: glowing 1500ms infinite;
+}
+
+
