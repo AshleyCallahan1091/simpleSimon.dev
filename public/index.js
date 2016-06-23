@@ -1,66 +1,98 @@
 "use strict";
 //add IFFE function
 
-             //Sample animation code
+var steveSays = []; 
+var index = 0;
+var allowUserInput = false;
 
-//var box = $(".box");
-
-	// box.animate({
-	// 	"width": "75px", //or +=number -=number
-	// 	"height": "100px"
-	// }, 3000, function(){
-	// 	console.log("done")
-	//}).animate({}); chain them or
-	//box.animate({blahblah}) make them separate - the next one won't start until the first one finishes (same result)
-
-	// setTimeout(function() { easier?
-	// 	console.log("rfghufd");
-	// }, 3000);
-
-	// setInterval(function() {
-	// 	console.log("rfghufd");
-	// }, 3000);
-
-var sampleButton = document.querySelector('#img1'); //<------possible way to do animation???
-
-console.log(img1.dataset.info); 
-console.log(img1.dataset.number);
+function mathRandom(){
+	return Math.floor((Math.random() * 4) + 1);
+};
 
 
+function shallWePlayAGame (){
+
+	steveSays.forEach(function (div, index){ 
+
+		//$('[data-number="' + div + '"]').addClass('flash'); //makes randomly selected image flash
+
+		var count = 0;
+		var max = 2;
+		var interval = 2000;
+
+		setTimeout(function() {  //makes randomly selected image stop flashing
+
+			// if (count >= max) {
+			// 	$('[data-number="' + div + '"]').removeClass('flash');
+			// } else {
+			//  count++;
+			// }
+
+			$('[data-number="' + div + '"]').animate({
+
+					"border-width" : "5px"
+
+
+				}, 1000).animate({
+
+					"border-width" : "0px"
+
+				}, 1000);
 
 
 
-     //Button Listeners
 
- // interval time in milliseconds
+		}, interval * index);
+		    
+	});
+
+	
+};
+
+function weArePlayingAGame (){
+	$('[data-info="image"]').click(function(event) { //user interaction
+	 
+ 		console.log($(this).data())
+ 		console.log($(this).data("number"))
+
+		if ($(this).data("number") == steveSays[index]) { //if user clicks on the right image, it moves to the next number in the array
+			
+    		if (steveSays.length == (index + 1)) { //if the user gets the right sequence, 
+  				steveSays.push(mathRandom()); //a new random number is generated and pushed to the array
+  				index = 0; //the index starts over
+  				shallWePlayAGame(); //sequence starts over
+  			} else {
+  				steveSays[index++];
+  			};
+
+  		} else {
+    		steveSays.length = 0; 
+    		alert("Steve says Hail Hydra.") //or the game starts over
+		}
+	});
+};
 
 
 
 
 
+	 //Start Button listener
 
 $('#startButton').click(function() {
 	console.log("Begin!");
 	alert("Captain America says begin!");
-	$('[data-number="1"]').addClass('flash');
-
-	var count = 0;
-	var max = 2;
-	var interval = 1000;
-
-	setInterval(function simonSays() {
-
-   		if (count >= max) {
-        	$('[data-number="1"]').removeClass('flash');
-
-    	} else {
-        count++;
-
-    	}
-	}, interval);
-	
+	steveSays.push(mathRandom());
+	console.log(steveSays[index]);
+	shallWePlayAGame(); 
 });
 
+weArePlayingAGame();
+
+
+
+
+
+  		
 
 
 
