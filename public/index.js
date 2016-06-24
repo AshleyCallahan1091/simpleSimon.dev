@@ -62,7 +62,7 @@ function weArePlayingAGame (){
     		$("#score").val(0);
     		allowUserInput = false;
     		index = 0;
-    		$("button").show("button");
+    		$("button").show();
 
 		}
 		};
@@ -72,14 +72,12 @@ function weArePlayingAGame (){
 	 //Start Button listener
 
 $('#startButton').click(function() {
-    $("button").hide("button");
+    $("button").hide();
 	$("#score").val("0"); 
 	steveSays = [];
 	alert("Captain America says begin!");
-
 	steveSays.push(mathRandom());
 	shallWePlayAGame();
-	
 });
 
 weArePlayingAGame();
