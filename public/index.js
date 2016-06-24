@@ -1,5 +1,6 @@
 "use strict";
-//add IFFE function
+
+(function () {
 
 var steveSays = []; 
 var index = 0;
@@ -12,109 +13,79 @@ function mathRandom(){
 
 function shallWePlayAGame (){
 
+	var interval = 1000;
+
 	steveSays.forEach(function (div, index){ 
 
-		//$('[data-number="' + div + '"]').addClass('flash'); //makes randomly selected image flash
+		setTimeout(function() {  
+			
+			$('[data-number="' + div + '"]').addClass("flash");
+			
+			setTimeout(function() { 
+				
+				$('[data-number="' + div + '"]').removeClass("flash");
+			}, interval - 100);
 
-		var count = 0;
-		var max = 2;
-		var interval = 2000;
+		}, interval * index)
 
-		setTimeout(function() {  //makes randomly selected image stop flashing
-
-			// if (count >= max) {
-			// 	$('[data-number="' + div + '"]').removeClass('flash');
-			// } else {
-			//  count++;
-			// }
-
-			$('[data-number="' + div + '"]').animate({
-
-					"border-width" : "5px"
-
-
-				}, 1000).animate({
-
-					"border-width" : "0px"
-
-				}, 1000);
-
-
-
-
-		}, interval * index);
-		    
 	});
 
-	
+	setTimeout(function() {
+		allowUserInput = true;
+	}, interval * steveSays.length)
+
 };
 
-function weArePlayingAGame (){
-	$('[data-info="image"]').click(function(event) { //user interaction
-	 
- 		console.log($(this).data())
- 		console.log($(this).data("number"))
 
-		if ($(this).data("number") == steveSays[index]) { //if user clicks on the right image, it moves to the next number in the array
+function weArePlayingAGame (){
+
+	$('[data-info="image"]').click(function(event) { 
+	 	if (allowUserInput){
+
+		if ($(this).data("number") == steveSays[index]) { 
 			
-    		if (steveSays.length == (index + 1)) { //if the user gets the right sequence, 
-  				steveSays.push(mathRandom()); //a new random number is generated and pushed to the array
-  				index = 0; //the index starts over
-  				shallWePlayAGame(); //sequence starts over
+    		if (steveSays.length == (index + 1)) { 
+  				steveSays.push(mathRandom()); 
+  				$("#score").val(
+  					(index+1)
+  					);
+  					index = 0; 
+  					allowUserInput = false;
+  				shallWePlayAGame(); 
   			} else {
   				steveSays[index++];
   			};
 
   		} else {
-    		steveSays.length = 0; 
-    		alert("Steve says Hail Hydra.") //or the game starts over
+    		steveSays = []; 
+    		alert("Steve says Hail Hydra.");
+    		$("#score").val(0);
+    		allowUserInput = false;
+    		index = 0;
+    		$("button").show("button");
+
 		}
+		};
 	});
 };
-
-
-
-
 
 	 //Start Button listener
 
 $('#startButton').click(function() {
-	console.log("Begin!");
+    $("button").hide("button");
+	$("#score").val("0"); 
+	steveSays = [];
 	alert("Captain America says begin!");
+
 	steveSays.push(mathRandom());
-	console.log(steveSays[index]);
-	shallWePlayAGame(); 
+	shallWePlayAGame();
+	
 });
 
 weArePlayingAGame();
 
 
-
-
-
-  		
-
-
-
-
-
-$('#img1').click(function() {
-	console.log("One!");
-});
-
-$('#img2').click(function() {
-	console.log("Two!");
-});
-
-$('#img3').click(function() {
-	console.log("Three!");
-});
-
-$('#img4').click(function() {
-	console.log("Four!");
-});
-
-
+})();
 
 
 
