@@ -7,14 +7,12 @@
 	</head>
 	<body>
 		<h1>Captain America says Simon Says!</h1>
-		<p>
-		<div class="container">
-			<br><br>
-			<section>
-				<button id="startButton" type="button">Let's Start!</button>
-			</section>
-		</div>
-		<div id="container">
+
+		<section>
+			<button id="startButton" type="button">Let's Start!</button>
+		</section>
+
+		<div id="imageContainer">
 			<div>
 				<img src="img/goodnight-steve.jpg" alt="Goodnight Steve" id="img1" class="img" data-info="image" data-number="1">
 			</div>
@@ -27,6 +25,11 @@
 			<div>
 				<img src="img/steve-proud.jpg" alt="Steve is proud of you!" id="img4" class="img" data-info="image" data-number="4">
 			</div>
+		</div>
+
+		<div id=scoreContainer>
+			<label>Your score is:</label>
+			<input type="text" id="score" placeholder="0" disabled>
 		</div>
 
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
