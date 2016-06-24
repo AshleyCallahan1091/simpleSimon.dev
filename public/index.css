@@ -2,38 +2,47 @@
 	width: 200px;
 	height: 200px;
 	position: absolute;
-	margin-top: 100px;
 	display: inline-block;
-	margin-left: 75px;
 	border-color: red;
 	border-width: 0px;
 	border-style: solid;
-
 }
-#container {
 
+#imageContainer {
 	position: relative;
+	height: 200px;
+	margin-top: 100px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
 
+#scoreContainer {
+	margin-top: 50px;
+	margin-left:15%;
+}
+
+#startButton{
+	margin-top: 40px;
 }
 
 #img1{
-	top: 25%;
+	top: 0%;
 	left: 8%;
 }
 
 #img2{
-	top: 25%;
-	left: 28%;
+	top: 0%;
+	left: 31%;
 }
 
 #img3{
-	top: 25%;
-	left: 48%;
+	top: 0%;
+	right: 31%;
 }
 
 #img4{
-	top: 25%;
-	left: 68%;
+	top: 0%;
+	right: 8%;
 }
 
 
@@ -58,25 +67,32 @@
 }
 
 
-
-h1{
+h1 {
 	text-align: center;
-	color: red;
-	margin-top: 20px;
+	margin-top: 30px;
 	margin-bottom: 0px;
+	color: red;
+}
+
+h1, label {
 	font-family: 'Baloo', cursive;
+}
+
+
+label {
+	color: #009ac9;
+	margin-top: 70%;
+	margin-left: 29%;
 
 }
 
 
-
-
-/*Custom Button CSS*/
+/*Start Button CSS*/
 
 body {
 	background-color: papayawhip;
-	min-height: 100%;
 	margin: 0;
+	display: ;
 	padding: 0;
 	font: 400 1.4rem 'Lato', Verdana, Helvetica, sans-serif;
 }
@@ -101,6 +117,7 @@ section button {
 	-webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
+	margin-top: 40px;
 }
 
 section button:hover {
@@ -136,12 +153,13 @@ section button:hover {
   100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
 }
 
-/*[data-number='1'] {*/
 .flash {
-  -webkit-animation: glowing 1500ms infinite;
-  -moz-animation: glowing 1500ms infinite;
-  -o-animation: glowing 1500ms infinite;
-  animation: glowing 1500ms infinite;
+  -webkit-animation: glowing 1500ms 1;
+  -moz-animation: glowing 1500ms 1;
+  -o-animation: glowing 1500ms 1;
+  animation: glowing 1500ms 1;
 }
+
+
 
 
