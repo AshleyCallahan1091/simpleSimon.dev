@@ -2,86 +2,83 @@
 
 (function () {
 
-var steveSays = []; 
-var index = 0;
-var allowUserInput = false;
-
-function mathRandom(){
-	return Math.floor((Math.random() * 4) + 1);
-};
+	var steveSays = []; 
+	var index = 0;
+	var allowUserInput = false;
 
 
-function shallWePlayAGame (){
+	function mathRandom(){
+		return Math.floor((Math.random() * 4) + 1);
+	};
 
-	var interval = 1000;
+	function shallWePlayAGame (){
 
-	steveSays.forEach(function (div, index){ 
+		var interval = 1000;
 
-		setTimeout(function() {  
-			
-			$('[data-number="' + div + '"]').addClass("flash");
-			
-			setTimeout(function() { 
+		steveSays.forEach(function (div, index){ 
+
+			setTimeout(function() {  
 				
-				$('[data-number="' + div + '"]').removeClass("flash");
-			}, interval - 100);
+				$('[data-number="' + div + '"]').addClass("flash");
+				
+				setTimeout(function() { 
+					
+					$('[data-number="' + div + '"]').removeClass("flash");
+				}, interval - 100);
 
-		}, interval * index)
+			}, interval * index)
 
+		});
+
+		setTimeout(function() {
+			allowUserInput = true;
+		}, interval * steveSays.length)
+
+	};
+
+
+	function weArePlayingAGame (){
+
+		$('[data-info="image"]').click(function(event) { 
+		 	if (allowUserInput){
+
+				if ($(this).data("number") == steveSays[index]) { 
+				
+	    			if (steveSays.length == (index + 1)) { 
+	  					steveSays.push(mathRandom()); 
+	  					$("#score").val((index+1));
+	  					index = 0; 
+	  					allowUserInput = false;
+	  					shallWePlayAGame(); 
+	  				} else {
+	  					steveSays[index++];
+	  				};
+
+	  			} else {
+	    		steveSays = []; 
+	    		alert("Steve says Hail Hydra.");
+	    		$("#score").val(0);
+	    		allowUserInput = false;
+	    		index = 0;
+	    		$("button").show();
+
+				}
+			};
+		});
+	};
+
+		 //Start Button listener
+
+	$('#startButton').click(function() {
+	    $("button").hide();
+		$("#score").val("0"); 
+		steveSays = [];
+		alert("Captain America says begin!");
+		steveSays.push(mathRandom());
+		shallWePlayAGame();
 	});
 
-	setTimeout(function() {
-		allowUserInput = true;
-	}, interval * steveSays.length)
-
-};
-
-
-function weArePlayingAGame (){
-
-	$('[data-info="image"]').click(function(event) { 
-	 	if (allowUserInput){
-
-		if ($(this).data("number") == steveSays[index]) { 
-			
-    		if (steveSays.length == (index + 1)) { 
-  				steveSays.push(mathRandom()); 
-  				$("#score").val(
-  					(index+1)
-  					);
-  					index = 0; 
-  					allowUserInput = false;
-  				shallWePlayAGame(); 
-  			} else {
-  				steveSays[index++];
-  			};
-
-  		} else {
-    		steveSays = []; 
-    		alert("Steve says Hail Hydra.");
-    		$("#score").val(0);
-    		allowUserInput = false;
-    		index = 0;
-    		$("button").show();
-
-		}
-		};
-	});
-};
-
-	 //Start Button listener
-
-$('#startButton').click(function() {
-    $("button").hide();
-	$("#score").val("0"); 
-	steveSays = [];
-	alert("Captain America says begin!");
-	steveSays.push(mathRandom());
-	shallWePlayAGame();
-});
-
-weArePlayingAGame();
-
+	weArePlayingAGame();
 
 })();
 
