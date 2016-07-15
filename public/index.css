@@ -45,7 +45,6 @@
 	right: 8%;
 }
 
-
 .img:hover{
 	cursor: pointer;
 }
@@ -66,7 +65,6 @@
 	content: url("img/steve-proud-hover.jpg");
 }
 
-
 h1 {
 	text-align: center;
 	margin-top: 30px;
@@ -83,7 +81,6 @@ label {
 	color: #009ac9;
 	margin-top: 70%;
 	margin-left: 29%;
-
 }
 
 
@@ -127,7 +124,6 @@ section button:hover {
 }
 
 /*Button Flashing*/
-
 
 @-webkit-keyframes glowing {
   0% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
